@@ -19,6 +19,8 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 
+from views import homepage
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     #path('accounts/', include('django_registration.backends.activation.urls')),#
@@ -27,5 +29,6 @@ urlpatterns = [
     path('accounts/', include(('accounts.urls','accounts'),namespace='accounts')),
     path('accounts/', include('django.contrib.auth.urls')),
     path('ckeditor/', include('ckeditor_uploader.urls')),
+    path('',homepage)
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns+=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

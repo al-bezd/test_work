@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from django.core.mail import EmailMultiAlternatives
 from django.http import HttpResponse
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 
 from django.conf import settings
@@ -166,6 +166,7 @@ class RegistrationForm(BaseRegistrationView):
 
         msg.send()
 
-
+def homepage(request):
+    return redirect(reverse_lazy("accounts:mkblog"))
 
 

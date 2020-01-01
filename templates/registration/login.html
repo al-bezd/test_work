@@ -1,0 +1,54 @@
+{%extends 'enter.html'%}
+
+{% block title %}
+Вход
+{% endblock %}
+
+{% block content %}
+<div class="content" >
+    <div class="row">
+        <div id="real" style="padding: 30px;   display: block;
+                margin-left: auto;
+                margin-right: auto;
+                min-width:400px;
+max-width:400px;">
+            <div class="wrap card" >
+                <section class="app-content">
+                    <div class="text-center">
+                        <h1>Авторизация</h1>
+                    </div>
+
+                    <form method="post" action="">{%csrf_token%}
+                    <dl class="register">
+                    {% for field in form %}
+                        <dt>{{ field.label_tag }}</dt>
+                        <dd class="clearfix"><input type="text" class="form-control" name="{{ field.name }}"  placeholder="">
+                        {% if field.help_text %}<div class="clearfix">{{ field.help_text }}</div>{% endif %}
+                        {% if field.errors %}<div class="myerrors clearfix">{{ field.errors }}</div>{% endif %}
+                        </dd>
+                    {% endfor %}
+                    </dl>
+                    <input class="btn rounded mw-md btn-primary clearfix form-control" type="submit" value="Вход">
+                    </form>
+                    {% if form.non_field_errors %}
+                        <div class="alert alert-warning alert-dismissible" role="alert" style="margin-top:20px;">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            {{ form.non_field_errors }}
+                        </div>
+                    {% endif %}
+
+
+                    <script type="text/javascript">
+                    document.getElementById('id_username').focus()
+                    </script>
+                    <br>
+                    <ul class="text-center list-unstyled" >
+                        <li><a href="{% url 'accounts:auth_password_reset' %}">Забыли пароль?</a></li>
+                        <li><a href="{% url 'accounts:registration_register' %}">Регистрация</a></li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

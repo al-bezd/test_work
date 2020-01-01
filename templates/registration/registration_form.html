@@ -1,0 +1,42 @@
+{%extends 'enter.html'%}
+
+{% block title %}
+Регистрация
+{% endblock %}
+{% block content %}
+<div class="content" >
+    <div class="row">
+        <div id="real" style="padding: 30px;   display: block;
+                margin-left: auto;
+                margin-right: auto;
+                min-width:400px;
+                max-width:400px;">
+            <div class="wrap card" >
+                <section class="app-content">
+                    <div class="text-center">
+                        <h1>Регистрация</h1>
+                    </div>
+                    <form method="POST" action="">{%csrf_token%}
+                        <div class="register form-group" >
+                            <input type="email" class="form-control" name="email" id="id_email" placeholder="Ваш email" value="{{email}}" required>
+                        </div>
+                        <div class="register form-group" >
+                            <input type="text" class="form-control" name="password" id="id_password" placeholder="Ваш пароль" required>
+                        </div>
+                        <input type="submit" value="Зарегистрироваться" class="btn mw-md btn-primary form-control">
+                    </form>
+                    {%if error %}
+                    <div class="alert alert-warning alert-dismissible" role="alert" style="margin-top:20px;">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        {{error|safe}}
+                    </div>
+                    {%endif%}
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

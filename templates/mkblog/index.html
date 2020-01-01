@@ -1,0 +1,61 @@
+{%extends 'base.html'%}
+{% block title %}
+    МикроБлог
+{% endblock %}
+{%block content%}
+  {%if not request.user.is_active%}
+    <script !src="">alert('user is not active');</script>
+  {%endif%}
+<!-- start head content         -->
+        <div class="col">
+          <!-- avtive -->
+            {% for post in posts %}
+                <div class="activeMode">
+                    <div class="card">
+                        <h1><a href="{{post.url}}">{{post.title}}</a></h1>
+                        {{post.short_view|safe}}
+                    </div>
+                </div>
+
+            {% endfor %}
+
+<div class="pagination center col">
+    <span class="step-links">
+        {% if posts.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ posts.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ posts.number }} of {{ posts.paginator.num_pages }}.
+        </span>
+
+        {% if posts.has_next %}
+            <a href="?page={{ posts.next_page_number }}">next</a>
+            <a href="?page={{ posts.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+            <br>
+
+          <!-- end active -->
+          <!-- Regster Users -->
+          <div class="regsterUsers">
+            <div class="card">
+                <form method="post">{%csrf_token%}
+                    {% for field in form %}
+                        {% if field.name == "title" %}
+                            <input type="text" class="form-control" name="{{ field.name }}" placeholder=""><br>
+                        {%else%}
+                             {{field}}<br>
+                        {% endif %}
+
+                    {%endfor%}
+                    <input class="btn rounded mw-md btn-primary clearfix form-control" type="submit" value="Отправить">
+                </form>
+            </div>
+          </div>
+          <!-- end  Regster Users-->
+        </div>
+
+{%endblock%}

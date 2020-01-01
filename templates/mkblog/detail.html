@@ -1,0 +1,15 @@
+{%extends 'base.html'%}
+{% block title %}
+МикроБлог
+{% endblock %}
+{%block content%}
+
+        <div class="col">
+          <!-- avtive -->
+                <div class="activeMode">
+                   <h1>{{object.title}}</h1>
+                    {{object.body|safe}}
+                </div>
+        </div>
+
+{% endblock %}

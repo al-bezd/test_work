@@ -1,0 +1,21 @@
+{%extends 'enter.html'%}
+{%block content%}
+<div class="content" >
+    <div class="row">
+        <div id="real" style="padding: 30px;   display: block;
+                margin-left: auto;
+                margin-right: auto;">
+            <div class="wrap card" >
+                <section class="app-content">
+                    <div class="text-center">
+                        <h1>Активация завершена</h1>
+                    </div>
+                    <div>
+                        <span>Активация завершена  можете <a href="{% url 'accounts:login' %}">авторизоваться</a></span>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock%}

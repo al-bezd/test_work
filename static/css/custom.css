@@ -1,0 +1,68 @@
+/*класс окна сообщения*/
+.msg_popen{
+    position:fixed;
+    z-index:10000;
+    top:5vh;
+    left:25vw;
+    max-width: 50vw;
+
+}
+.list-group-item.active {
+    color: #fff;
+    background-color: #7b01e9;
+    border: 1px solid #7b01e9;
+}
+/*оъявление класса для заголовка таблицы(просмотр результат)*/
+.theader{
+    color: #fff;
+    background-color: #7b01e9;
+    border: 1px solid #7b01e9;
+}
+.scroll-y{
+    overflow-y: scroll;
+    max-height:500px;
+}
+/*нижняя линия*/
+.subline{
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e3eaf1;
+}
+/*отступ сверху*/
+.margin-top{
+    margin-top: 20px;
+}
+/*изменение дефолтного шрифта*/
+a, p, h1, h2, h3, h4, h5 {
+    font-family: 'dfont';
+    text-transform: none;
+}
+.btn{
+    text-transform: none;
+}
+/*применение дефолтного шрифта к класу btn*/
+.btn{
+    font-family: 'dfont';
+}
+/*применение второстепенного шрифта*/
+small, span, div{
+    font-family: 'sfont';
+}
+/*изменение курсора мышки при наведении на заголовок таблицы при условии что можно применить сортировку*/
+tr.point>td{
+    cursor:pointer;
+}
+
+/*COLORS*/
+.red{color:red;}
+.purpl{color:#7b01e9;}
+
+/*FONTS*/
+@font-face {
+    font-family: dfont; /* Гарнитура шрифта */
+    src: url(/static/fonts/default_font.ttf); /* Путь к файлу со шрифтом */
+   }
+
+@font-face {
+    font-family: sfont; /* Гарнитура шрифта */
+    src: url(/static/fonts/small_font.ttf); /* Путь к файлу со шрифтом */
+   }
